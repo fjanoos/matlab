@@ -1,0 +1,140 @@
+<html xmlns:mwsh="http://www.mathworks.com/namespace/mcode/v1/syntaxhighlight.dtd">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <!--
+This HTML is auto-generated from an M-file.
+To make changes, update the M-file and republish this document.
+      -->
+      <title>grs2rgb</title>
+      <meta name="generator" content="MATLAB 7.1">
+      <meta name="date" content="2006-12-09">
+      <meta name="m-file" content="grs2rgbh"><style>
+
+body {
+  background-color: white;
+  margin:10px;
+}
+
+h1 {
+  color: #990000; 
+  font-size: x-large;
+}
+
+h2 {
+  color: #990000;
+  font-size: medium;
+}
+
+/* Make the text shrink to fit narrow windows, but not stretch too far in 
+wide windows.  On Gecko-based browsers, the shrink-to-fit doesn't work. */ 
+p,h1,h2,div.content div {
+  /* for MATLAB's browser */
+  width: 600px;
+  /* for Mozilla, but the "width" tag overrides it anyway */
+  max-width: 600px;
+  /* for IE */
+  width:expression(document.body.clientWidth > 620 ? "600px": "auto" );
+}
+
+pre.codeinput {
+  background: #EEEEEE;
+  padding: 10px;
+}
+
+span.keyword {color: #0000FF}
+span.comment {color: #228B22}
+span.string {color: #A020F0}
+span.untermstring {color: #B20000}
+span.syscmd {color: #B28C00}
+
+pre.codeoutput {
+  color: #666666;
+  padding: 10px;
+}
+
+pre.error {
+  color: red;
+}
+
+p.footer {
+  text-align: right;
+  font-size: xx-small;
+  font-weight: lighter;
+  font-style: italic;
+  color: gray;
+}
+
+  </style></head>
+   <body>
+      <div class="content">
+         <h1>grs2rgb</h1>
+         <introduction></introduction>
+         <h2>Contents</h2>
+         <div>
+            <ul>
+               <li><a href="#1">Overview</a></li>
+               <li><a href="#2">Usage</a></li>
+               <li><a href="#3">Examples</a></li>
+               <li><a href="#6">See also</a></li>
+            </ul>
+         </div>
+         <h2>Overview<a name="1"></a></h2>
+         <p>grs2rgb converts grayscale images to RGB using specified colormap.</p>
+         <h2>Usage<a name="2"></a></h2>
+         <p>res = grs2rgb(img) produces the RGB image <tt>res</tt> from the grayscale image <tt>img</tt> using the colormap <tt>hot</tt> with 64 colors.
+         </p>
+         <p>res = grs2rgb(img,map) produces the RGB image <tt>res</tt> from the grayscale image <tt>img</tt> using the colormap matrix <tt>map</tt>. <tt>map</tt> must contain 3 columns for red, green, and blue components.
+         </p>
+         <h2>Examples<a name="3"></a></h2>
+         <p><b>Example 1</b>: Use <tt>imread</tt> to import an image and apply <tt>grs2rgb</tt> to obtain the new image using the default colormap <tt>hot</tt>:
+         </p><pre class="codeinput">img = imread(<span class="string">'sm.tif'</span>);
+res1 = grs2rgb(img);
+</pre><p><b>Example 2</b>: Define the colormap <tt>map</tt> and apply it to the same image:
+         </p><pre class="codeinput">cmap = summer(64);
+res2 = grs2rgb(img,cmap);
+</pre><p>Display the images:</p><pre class="codeinput">imshow(img); axis <span class="string">image</span> <span class="string">off</span>;
+figure; imshow(res1); axis <span class="string">image</span> <span class="string">off</span>;
+figure; imshow(res2); axis <span class="string">image</span> <span class="string">off</span>;
+</pre><img vspace="5" hspace="5" src="grs2rgbh_01.png"> <img vspace="5" hspace="5" src="grs2rgbh_02.png"> <img vspace="5" hspace="5" src="grs2rgbh_03.png"> <h2>See also<a name="6"></a></h2>
+         <p>colormap, hot, summer</p>
+         <p class="footer"><br>
+            Published with MATLAB&reg; 7.1<br></p>
+      </div>
+      <!--
+##### SOURCE BEGIN #####
+%% grs2rgb
+
+%% Overview
+% grs2rgb converts grayscale images to RGB using specified colormap.
+
+%% Usage
+% res = grs2rgb(img) produces the RGB image |res| from the grayscale image 
+% |img| using the colormap |hot| with 64 colors.
+%
+% res = grs2rgb(img,map) produces the RGB image |res| from the grayscale image 
+% |img| using the colormap matrix |map|. |map| must contain 3 columns for red, 
+% green, and blue components.  
+
+%% Examples
+% *Example 1*: Use |imread| to import an image and apply |grs2rgb| to obtain 
+% the new image using the default colormap |hot|:
+img = imread('sm.tif');
+res1 = grs2rgb(img);
+%% 
+% *Example 2*: Define the colormap |map| and apply it to the same image:
+cmap = summer(64);
+res2 = grs2rgb(img,cmap);
+%% 
+% Display the images:
+imshow(img); axis image off;  
+figure; imshow(res1); axis image off;
+figure; imshow(res2); axis image off;
+
+%% See also 
+% colormap, hot, summer
+
+##### SOURCE END #####
+-->
+   </body>
+</html>
